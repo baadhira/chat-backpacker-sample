@@ -29,10 +29,14 @@ app.post("/server", (req, res) => {
 
 let io = require("socket.io")(server,{
   cors: {
-    origin: "http://localhost:3000",
+    // origin: "http://localhost:3000",
+    origin: "https://backpackers-frontend2.herokuapp.com",
+
 }
   });
 
+
+  
 io.on("connection", (socket) => {
     socket.on("command", function (data) {
       io.emit("command", data);
