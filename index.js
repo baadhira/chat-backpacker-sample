@@ -8,7 +8,9 @@ const port=9000
 
 app = express();
 
-const server= http.createServer(app).listen(port, () => {});
+const server= http.createServer(app).listen(process.env.PORT || port, '0.0.0.0', () => {
+  console.log("Server is running.");
+});
 
 app.use(cors());
 
